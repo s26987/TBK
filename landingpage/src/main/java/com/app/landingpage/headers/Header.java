@@ -9,8 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.awt.*;
 import java.util.List;
 
-@Getter
-@Setter
+
 @Document(collection = "headers")
 public class Header {
 
@@ -27,6 +26,38 @@ public class Header {
         this.id = id;
         this.logo = logo;
         this.slogan = slogan;
+        this.menu = menu;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public String getSlogan() {
+        return slogan;
+    }
+
+    public void setSlogan(String slogan) {
+        this.slogan = slogan;
+    }
+
+    public List<MenuItem> getMenu() {
+        return menu;
+    }
+
+    public void setMenu(List<MenuItem> menu) {
         this.menu = menu;
     }
 }
