@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HeaderService {
@@ -23,12 +24,22 @@ public class HeaderService {
         return headerRepository.findAll();
     }
 
+    public Optional<Header> getHeaderById(String id) {
+        return headerRepository.findById(id);
+    }
+
     public Header updateHeader(String id, Header updatedHeader) {
         return headerRepository.findById(id)
                 .map(existing -> {
-                    existing.setLogo(updatedHeader.getLogo());
-                    existing.setSlogan(updatedHeader.getSlogan());
-                    existing.setMenu(updatedHeader.getMenu());
+                    if (updatedHeader.getLogo() != null) {
+                        existing.setLogo(updatedHeader.getLogo());
+                    }
+                    if (updatedHeader.getSlogan() != null) {
+                        existing.setSlogan(updatedHeader.getSlogan());
+                    }
+                    if (updatedHeader.getMenu() != null) {
+                        existing.setMenu(updatedHeader.getMenu());
+                    }
                     return headerRepository.save(existing);
                 })
                 .orElseThrow(() -> new RuntimeException("Header nieznaleziony."));

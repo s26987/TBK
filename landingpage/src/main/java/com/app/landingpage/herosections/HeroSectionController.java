@@ -1,11 +1,14 @@
 package com.app.landingpage.herosections;
 
+import com.app.landingpage.headers.Header;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/hero-sections")
+@RestController
+@RequestMapping("/hero-sections")
 public class HeroSectionController {
 
     public final HeroSectionService heroSectionService;
@@ -23,6 +26,13 @@ public class HeroSectionController {
     @GetMapping
     public List<HeroSection> getAllHeroSections() {
         return heroSectionService.getAllHeroSections();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<HeroSection> getHeaderById(@PathVariable String id) {
+        return heroSectionService.getHeroSectionById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")

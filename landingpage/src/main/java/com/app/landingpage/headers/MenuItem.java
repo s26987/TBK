@@ -1,10 +1,6 @@
 package com.app.landingpage.headers;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class MenuItem {
     //menuitem jako osobna klasa ze wzgledu na elastycznosc zarzadzania elementami
     private String name;
@@ -15,4 +11,19 @@ public class MenuItem {
         this.url = url;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

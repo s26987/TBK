@@ -1,6 +1,7 @@
 package com.app.landingpage.headers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,14 @@ public class HeaderController {
     public List<Header> getAllHeaders() {
         return headerService.getAllHeaders();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Header> getHeaderById(@PathVariable String id) {
+        return headerService.getHeaderById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
 
     @PostMapping
     public Header createHeader(@RequestBody Header header) {
