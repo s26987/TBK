@@ -23,7 +23,7 @@ public class SecurityConfig {
                 }))
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/headers/**", "/hero-sections/**").permitAll()
+                        .requestMatchers("/headers/**", "/hero-sections/**", "/about-us/**").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
