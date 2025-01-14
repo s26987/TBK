@@ -24,7 +24,8 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/headers/**", "/hero-sections/**", "/about-us/**",
-                                "/features/**", "/testimonials/**", "/galleries/**", "/footers/**").permitAll()
+                                "/features/**", "/testimonials/**", "/galleries/**", "/footers/**",
+                                "/translations/**", "/personalizations/**", "/contact-forms/**").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
