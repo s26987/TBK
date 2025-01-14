@@ -46,7 +46,7 @@ public class HeroSectionService {
                     }
                     return heroSectionRepository.save(existing);
                 })
-                .orElseThrow(() -> new RuntimeException("HeroSection nieznalezione."));
+                .orElseThrow(() -> new RuntimeException("HeroSection o id: " + id + " nie zostalo znalezione"));
     }
 
     public void deleteHeroSection(String id) {

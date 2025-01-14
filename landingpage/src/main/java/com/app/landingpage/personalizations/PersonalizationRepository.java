@@ -1,4 +1,4 @@
-package personalizations;
+package com.app.landingpage.personalizations;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

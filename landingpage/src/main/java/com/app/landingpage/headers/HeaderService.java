@@ -42,7 +42,7 @@ public class HeaderService {
                     }
                     return headerRepository.save(existing);
                 })
-                .orElseThrow(() -> new RuntimeException("Header nieznaleziony."));
+                .orElseThrow(() -> new RuntimeException("Header o id: " + id + " nie zostal znaleziony"));
     }
 
     public void deleteHeader(String id) {

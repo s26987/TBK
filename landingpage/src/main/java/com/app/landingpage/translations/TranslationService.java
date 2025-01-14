@@ -44,7 +44,7 @@ public class TranslationService {
                     }
                     return translationRepository.save(existing);
                 })
-                .orElseThrow(() -> new RuntimeException("Translation nieznalezione."));
+                .orElseThrow(() -> new RuntimeException("Translation o id: " + id + " nieznaleziony"));
     }
 
     public void deleteTranslation(String id) {

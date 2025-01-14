@@ -1,6 +1,7 @@
 package com.app.landingpage.contactforms;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,13 @@ public class ContactFormsController {
     @GetMapping
     public List<ContactForms> getAllContactForms() {
         return contactFormsService.getAllContactForms();
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<ContactForms> getContactForms(@PathVariable String id) {
+        return contactFormsService.getContactFormsById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping(path = "/{id}")

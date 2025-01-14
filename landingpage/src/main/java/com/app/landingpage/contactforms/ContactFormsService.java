@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ContactFormsService {
@@ -21,6 +22,10 @@ public class ContactFormsService {
 
     public ContactForms addContactForms(ContactForms contactForms) {
         return contactFormsRepository.save(contactForms);
+    }
+
+    public Optional<ContactForms> getContactFormsById(String id) {
+        return contactFormsRepository.findById(id);
     }
 
     public ContactForms updateContactForms(String id, ContactForms updatedContactForms) {
@@ -46,7 +51,7 @@ public class ContactFormsService {
                     }
                     return contactFormsRepository.save(existing);
                 })
-                .orElseThrow(() -> new RuntimeException("ContactForms nieznalezione."));
+                .orElseThrow(() -> new RuntimeException("ContactForms o id: " + id + " nie zostalo znalezione"));
     }
 
     public void deleteContactForms(String id) {

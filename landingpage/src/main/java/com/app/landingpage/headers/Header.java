@@ -1,12 +1,8 @@
 package com.app.landingpage.headers;
 
-
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.awt.*;
 import java.util.List;
 
 

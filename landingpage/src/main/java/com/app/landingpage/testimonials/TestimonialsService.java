@@ -36,7 +36,7 @@ public class TestimonialsService {
                     }
                     return testimonialsRepository.save(existing);
                 })
-                .orElseThrow(() -> new RuntimeException("Testimonials nieznalezione."));
+                .orElseThrow(() -> new RuntimeException("Testimonials o id: " + id + " nieznalezione"));
     }
 
 

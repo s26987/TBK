@@ -60,7 +60,7 @@ public class FooterService {
 
                     return footerRepository.save(existingFooter);
                 })
-                .orElseThrow(() -> new RuntimeException("Footer nieznaleziony."));
+                .orElseThrow(() -> new RuntimeException("Footer o id: " + id + " nie zostal znaleziony"));
     }
 
     public void deleteFooter(String id) {

@@ -1,4 +1,4 @@
-package personalizations;
+package com.app.landingpage.personalizations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +36,7 @@ public class PersonalizationService {
                     }
                     return personalizationRepository.save(existing);
                 })
-                .orElseThrow(() -> new RuntimeException("Personalization nieznalezione."));
+                .orElseThrow(() -> new RuntimeException("Personalization o id:" + id + " nie zostalo znalezione"));
     }
 
     public void deletePersonalization(String id) {
