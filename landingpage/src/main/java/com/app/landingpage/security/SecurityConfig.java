@@ -29,7 +29,7 @@ public class SecurityConfig {
                         .requestMatchers("/headers/**", "/hero-sections/**", "/about-us/**",
                                 "/features/**", "/testimonials/**", "/galleries/**", "/footers/**",
                                 "/translations/**", "/personalizations/**", "/contact-forms/**", "/users/**",
-                                "/analytics/**").permitAll()
+                                "/analytics/**", "/media/**").permitAll()
                         .anyRequest().authenticated())
                 //zabezpieczenia http(bo wymagania)
                 .headers(headers -> headers
