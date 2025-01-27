@@ -14,13 +14,13 @@ public class ContactForms {
     private String email;
     private String subject;
     private String message;
-    private Enum status;
+    private ContactFormStatus status; // <--- używamy konkretnego enuma zamiast Enum
     private LocalDate date;
 
     public ContactForms() {
     }
 
-    public ContactForms(String id, String email, String name, String subject, String message, LocalDate date, Enum status) {
+    public ContactForms(String id, String email, String name, String subject, String message, LocalDate date, ContactFormStatus status) {
         this.id = id;
         this.email = email;
         this.name = name;
@@ -29,6 +29,8 @@ public class ContactForms {
         this.date = date;
         this.status = status;
     }
+
+    // Gettery i Settery
 
     public String getId() {
         return id;
@@ -70,11 +72,11 @@ public class ContactForms {
         this.message = message;
     }
 
-    public Enum getStatus() {
+    public ContactFormStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Enum status) {
+    public void setStatus(ContactFormStatus status) {
         this.status = status;
     }
 

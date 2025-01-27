@@ -1,6 +1,6 @@
 package com.app.landingpage.contactforms;
 
-public enum Status {
+public enum ContactFormStatus {
     NEW,
     READ,
     CLOSED
